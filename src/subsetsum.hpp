@@ -3,7 +3,7 @@
 #include <vector>
 #include <map>
 
-namespace subset_sum {
+namespace subsetsum {
 
 class Solver {
  public:
@@ -44,4 +44,4 @@ class Solver {
   std::vector<QueueItem> queue_;
 };
 
-}  // end namespace subset_sum
+}  // end namespace subsetsum

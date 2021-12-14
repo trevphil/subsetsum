@@ -3,7 +3,7 @@
 
 #include "subsetsum.hpp"
 
-namespace subset_sum {
+namespace subsetsum {
 
 std::vector<int> mutatingArgsort(std::vector<int>& a) {
   const int n = static_cast<int>(a.size());
@@ -29,6 +29,11 @@ Solver::Solver(const std::vector<int>& nums, int target)
     : nums_(nums), target_(target), has_sol_(true), dp_(nullptr) {
   const std::vector<int> indices = mutatingArgsort(nums_);
   n_ = static_cast<int>(nums_.size());
+  if (n_ == 0) {
+    has_sol_ = false;
+    return;
+  }
+
   int negative_sum = 0;
   int positive_sum = 0;
 
@@ -140,4 +145,4 @@ std::vector<int> Solver::getNextSolution() {
   return {};
 }
 
-}  // end namespace subset_sum
+}  // end namespace subsetsum
