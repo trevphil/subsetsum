@@ -1,4 +1,5 @@
 from collections import defaultdict
+import pytest
 
 import subsetsum
 
@@ -102,3 +103,21 @@ class TestSubsetSum:
         solutions = list(subsetsum.solutions(nums, target))
         num_solutions = len(solutions)
         assert num_solutions == (1 << 10) - 1
+
+    @pytest.mark.parametrize(
+        "data",
+        [
+            ([-1, -2, -3], (-6, -4)),
+            ([3, 2, 1], (4, 6)),
+            ([0, -3, 3, 2, -2, -1, 1], (-6, 6))
+        ]
+    )
+    def test_correct_sum(self, data):
+        nums, bounds = data
+        for t in range(bounds[0], bounds[1] + 1):
+            solutions = list(subsetsum.solutions(nums, t))
+            assert len(solutions) > 0, f"No solution : {nums} : {t}"
+            for solution in solutions:
+                subset = [nums[i] for i in solution]
+                total = sum(subset)
+                assert total == t, f"Wrong solution : {subset} : {total} != {t}"

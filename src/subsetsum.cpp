@@ -27,12 +27,17 @@ std::vector<int> mutatingArgsort(std::vector<int>& a) {
 
 Solver::Solver(const std::vector<int>& nums, int target)
     : nums_(nums), target_(target), has_sol_(true), dp_(nullptr) {
-  const std::vector<int> indices = mutatingArgsort(nums_);
   n_ = static_cast<int>(nums_.size());
   if (n_ == 0) {
     has_sol_ = false;
     return;
   }
+
+  if (target_ < 0) {
+    flipSign();
+  }
+
+  const std::vector<int> indices = mutatingArgsort(nums_);
 
   int negative_sum = 0;
   int positive_sum = 0;
@@ -65,6 +70,13 @@ Solver::Solver(const std::vector<int>& nums, int target)
 Solver::~Solver() {
   if (dp_ != nullptr) {
     delete dp_;
+  }
+}
+
+void Solver::flipSign() {
+  target_ *= -1;
+  for (int i = 0; i < n_; ++i) {
+    nums_[i] *= -1;
   }
 }
 

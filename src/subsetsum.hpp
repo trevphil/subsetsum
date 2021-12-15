@@ -29,6 +29,8 @@ class Solver {
     int togo;
   };
 
+  void flipSign();
+
   void fillDPTable();
 
   std::vector<int> genSolution(const QueueItem& item) const;
