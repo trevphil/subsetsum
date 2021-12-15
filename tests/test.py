@@ -121,3 +121,11 @@ class TestSubsetSum:
                 subset = [nums[i] for i in solution]
                 total = sum(subset)
                 assert total == t, f"Wrong solution : {subset} : {total} != {t}"
+
+
+if __name__ == "__main__":
+    import sys
+    from pathlib import Path
+
+    retcode = pytest.main([str(Path(__file__).absolute())])
+    sys.exit(retcode)

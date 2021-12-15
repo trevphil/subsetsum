@@ -3,6 +3,10 @@
 
 #include "subsetsum.hpp"
 
+/*
+g++ tool.cpp subsetsum.cpp -o tool -std=c++17 -Wall -Werror
+*/
+
 void printVec(const std::vector<int>& v) {
   const int n = static_cast<int>(v.size());
   std::cout << "[ ";
