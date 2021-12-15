@@ -31,7 +31,6 @@ setup(
     package_dir={"": "src"},
     packages=find_packages(where="src"),
     ext_modules=ext_modules,
-    install_requires=["pytest"],
     extras_require={"test": "pytest"},
     cmdclass={"build_ext": build_ext},
     zip_safe=False,
