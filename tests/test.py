@@ -46,7 +46,7 @@ class TestSubsetSum:
             (-1, 0, 1),
             (-2, -1, 0, 1, 2),
             (-2, -1, 1, 2),
-            (0, )
+            (0,),
         ]
         self.check_results(nums, expected, solutions)
 
@@ -55,17 +55,17 @@ class TestSubsetSum:
         target = 0
         solutions = list(subsetsum.solutions(nums, target))
         expected = [
-          (0, ),
-          (-1, 1),
-          (-1, 1),
-          (-1, 1),
-          (-1, 1),
-          (-1, 0, 1),
-          (-1, 0, 1),
-          (-1, 0, 1),
-          (-1, 0, 1),
-          (-1, -1, 1, 1),
-          (-1, -1, 0, 1, 1),
+            (0,),
+            (-1, 1),
+            (-1, 1),
+            (-1, 1),
+            (-1, 1),
+            (-1, 0, 1),
+            (-1, 0, 1),
+            (-1, 0, 1),
+            (-1, 0, 1),
+            (-1, -1, 1, 1),
+            (-1, -1, 0, 1, 1),
         ]
         self.check_results(nums, expected, solutions)
 
@@ -109,8 +109,8 @@ class TestSubsetSum:
         [
             ([-1, -2, -3], (-6, -4)),
             ([3, 2, 1], (4, 6)),
-            ([0, -3, 3, 2, -2, -1, 1], (-6, 6))
-        ]
+            ([0, -3, 3, 2, -2, -1, 1], (-6, 6)),
+        ],
     )
     def test_correct_sum(self, data):
         nums, bounds = data
