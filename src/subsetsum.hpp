@@ -1,7 +1,6 @@
 #pragma once
 
 #include <vector>
-#include <map>
 
 namespace subsetsum {
 
@@ -37,7 +36,7 @@ class Solver {
 
   int n_;
   std::vector<int> nums_;
-  std::map<int, int> remapping_;
+  std::vector<int> remapping_;
   int target_;
   bool has_sol_;
   int a_, b_;

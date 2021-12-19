@@ -37,13 +37,12 @@ Solver::Solver(const std::vector<int>& nums, int target)
     flipSign();
   }
 
-  const std::vector<int> indices = mutatingArgsort(nums_);
+  remapping_ = mutatingArgsort(nums_);
 
   int negative_sum = 0;
   int positive_sum = 0;
 
   for (int i = 0; i < n_; ++i) {
-    remapping_[i] = indices[i];
     if (nums_[i] < 0) {
       negative_sum += nums_[i];
     } else {
@@ -69,7 +68,7 @@ Solver::Solver(const std::vector<int>& nums, int target)
 
 Solver::~Solver() {
   if (dp_ != nullptr) {
-    delete dp_;
+    delete[] dp_;
   }
 }
 
